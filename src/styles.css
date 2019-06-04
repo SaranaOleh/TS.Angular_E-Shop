@@ -1,0 +1,139 @@
+*, html, body
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+.btn{
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+.cat-title{
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.label{
+  color: #3013f8;
+  font-weight: bold;
+}
+.deleteSpan{
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 5px;
+  border: 2px solid #03A9F4;
+}
+.deleteSpan:hover{
+  border: 2px solid black;
+  color: red;
+  cursor: pointer;
+}
+.error{
+  color: red;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.nav a{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+th{
+  cursor: pointer;
+}
+.priArrow{
+  width: 20px;
+  height: 20px;
+  background: #45acc8;
+}
+.prod-preloader{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.m-btn{
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: linear-gradient(to left,#FFF9C4 0%,#E1F5FE 0%, #E1F5FE 100%);
+  color: #5D4037;
+}
+
+.th-order
+{
+  font-family: 'Montserrat', sans-serif;
+  color: #03A9F4;;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.fa-star-of-life
+{
+  color: red;
+  font-size: 0.7em;
+}
+.btn-icon
+{
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #03A9F4;
+  font-size: 1.6em;
+  padding: 0;
+}
+.btn-icon:hover
+{
+  color: #FFEB3B;
+}
+
+.cat-title{
+  color: #5D4037;
+}
+.a-btn
+{
+  margin-right: 6px;
+  cursor: pointer;
+  background-color: #81D4FA;
+  color: #5D4037;
+  border: 1px solid #81D4FA;
+  box-shadow: 0 0 5px 0 gray;
+}
+.a-btn:hover
+{
+  border: 1px solid #5D4037;
+  color: white;
+}
+
+table
+{
+  border-collapse: collapse;
+}
+table .btn-icon
+{
+  padding: 5px;
+}
+.label
+{
+  color: #03A9F4;
+}
+.addForm input:not([type=submit]), .addForm select
+{
+  min-width: 200px;
+  padding: 5px;
+}
+.addForm input[type=radio]
+{
+  min-width: 0;
+  padding: 0;
+}
+.addForm li
+{
+  color: #5D4037;
+}

@@ -1,0 +1,15 @@
+footer{
+  background: #81D4FA;
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: -1;
+}
+p{
+  font-family: 'Montserrat', sans-serif;
+  color: #FFEB3B;
+}

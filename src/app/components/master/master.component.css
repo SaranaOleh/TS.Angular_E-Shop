@@ -1,0 +1,9 @@
+.up
+{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: none;
+  font-size: 3em;
+  color: #5D4037;
+}

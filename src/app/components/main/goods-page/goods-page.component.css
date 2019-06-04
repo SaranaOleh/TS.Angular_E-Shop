@@ -1,0 +1,222 @@
+.container
+{
+  width: 100%;
+  display: flex;
+}
+.filters
+{
+  width: 25%;
+}
+.products
+{
+  width: 75%;
+}
+.header
+{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.list
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  border-top: 1px solid #5D4037;
+  align-items: end;
+}
+h1{
+  color: #5D4037;
+}
+.block{
+  word-break: break-all;
+  font-size: 16px;
+  width: 30%;
+  height: 100%;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #5D4037;
+}
+.block .hr
+{
+  height: 1px;
+  width: 0;
+  background-color: #5D4037;
+  transition: 0.5s;
+}
+.block:hover .hr
+{
+ width: 100%;
+}
+
+.activity, .interaction{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.raiting, .comments{
+  width: 40%;
+  height: 20px;
+}
+.raiting{
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.comments
+{
+  font-size: 0.8em;
+}
+.comments span>span{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.img{
+  width: 100%;
+  height: 250px;
+  background: url("../../../../assets/mainSlides/2.jpg") no-repeat center;
+  background-size: contain;
+}
+.price span{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: #5D4037;
+}
+.interaction button{
+  padding: 10px;
+}
+
+.card > *:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: #5D4037;
+  min-height: 40px;
+  display: block;
+}
+.title:hover
+{
+  color: #03A9F4;
+}
+
+.amountHigh
+{
+  color: green;
+}
+.amountLow
+{
+  color: red;
+}
+.amountNo
+{
+  color: gray;
+}
+.attr
+{
+  width: 100%;
+  background-color: #FFFDE7;
+}
+.attr li{
+  color: #5D4037;
+}
+li > ul li{
+  color: #03A9F4;
+}
+.priceInputs
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.priceInputs input
+{
+  width: 38%;
+  padding: 5px;
+}
+.priceInputs span
+{
+ font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+.priceInputs span:hover
+{
+  color: red;
+}
+.priceRanges
+{
+  margin-top: 10px;
+}
+.priceRanges div:last-child
+{
+  text-align: right;
+}
+.priceRanges input
+{
+  width: 71%;
+}
+.priceRanges span
+{
+  font-family: 'Montserrat', sans-serif;
+}
+.span
+{
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+.span ul{
+  margin-top: 10px;
+}
+
+.span ul li:not(:last-child){
+  margin-bottom: 5px;
+}
+.attrButtons
+{
+  display: flex;
+  justify-content: space-around;
+  background-color: #81D4FA;
+  padding: 10px 0;
+}
+.attrButtons a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+.attrButtons a:hover{
+  color: #FFEB3B;
+}
+.checkbox{
+  margin-right: 10px;
+}
+.popup{
+  position: absolute;
+  background-color: #81D4FA;
+  padding: 5px;
+  box-shadow: 0 0 3px 0 gray;
+}
+.popup a{
+  color: white;
+}
+.popupArrow{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px  solid #81D4FA;
+  top: 50%;
+  margin-top: -10px;
+  left: -20px;
+}
+.target-span{
+  margin-left: 10px;
+}

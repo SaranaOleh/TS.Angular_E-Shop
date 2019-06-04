@@ -1,0 +1,84 @@
+label, input{
+  display: block;
+  width: 100%;
+}
+input{
+  padding: 5px;
+}
+.container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(117, 128, 118, 0.6);
+  z-index: 1001;
+
+}
+.form{
+  width: 400px;
+  background: #FFFDE7;
+  margin: 50px auto;
+  padding: 20px;
+  position: relative;
+  padding-top: 30px;
+  border-bottom-left-radius: 20px;
+  animation: fadeIn 0.5s;
+}
+.container p{
+  background: red;
+  color: white;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+
+}
+.nav{
+
+}
+.close{
+  position: absolute;
+  right: -17px;
+  top: -22px;
+  padding: 5px 8px;
+}
+.btn-nav{
+  flex: 1;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+.active{
+  background-color: #B3E5FC;
+  font-family: 'Montserrat', sans-serif;
+  color: #5D4037;
+}
+label{
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+}
+
+.register input{
+  display: inline-block;
+}
+.register input:last-child, .login input:last-child{
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px;
+  background-color: white;
+  margin: 10px auto;
+}
+form{
+  padding-top: 10px;
+}
+@keyframes fadeIn {
+  from{
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,154 @@
+
+label{
+  display: block;
+}
+.attr{
+  display: flex;
+  justify-content: space-between;
+}
+.attrspan{
+  position: relative;
+}
+.deleteSpan{
+  position: absolute;
+  right: -30px;
+  top: -2px;
+}
+.images{
+  display: flex;
+  justify-content: space-between;
+}
+.submit{
+  margin-top: 20px;
+}
+
+.image_cont{
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+input{
+  margin-bottom: 20px;
+}
+.attrspan{
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid black;
+  padding: 0 10px;
+  margin: 10px 0;
+}
+.newAttrs{
+  padding: 20px;
+  margin-top: 10px;
+}
+.submit > *{
+  vertical-align: top;
+}
+.userData p
+{
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.list
+{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-right: 30px;
+}
+.list li
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+.view
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.view > div:first-child
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.img
+{
+  width: 70px;
+  height: 80px;
+  min-width: 70px;
+  min-height: 80px;
+  margin-right: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.title
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.adding
+{
+  padding: 2px 10px;
+  border: 1px solid #03A9F4;
+  color: white;
+  background-color: #03A9F4;
+}
+.adding:nth-child(2)
+{
+  color: black;
+  background-color: white;
+  border-right: none;
+  border-left: none;
+}
+.adding:first-child
+{
+  cursor: pointer;
+  border-right: none;
+}
+.adding:nth-child(3)
+{
+  cursor: pointer;
+  border-left: none;
+  margin-right: 20px;
+}
+.enough
+{
+  font-family: 'Montserrat', sans-serif;
+  color: red;
+}
+.del{
+  font-family: 'Montserrat', sans-serif;
+  align-self: baseline;
+  margin-right: auto;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.total
+{
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  background-color: #cfedfb;
+  padding: 10px 0;
+}
+.total p{
+  font-weight: bolder;
+}
+.total span{
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 10px;
+}

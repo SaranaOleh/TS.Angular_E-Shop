@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Сравнение товаров</h1>
+  <table *ngIf="categoryArray && categoryAttrs && categoryArray.length > 0">
+    <tr class="headerRow">
+      <th>
+        <button class="c-btn" (click)="destroyAllProd()">Очистеть все</button>
+        <p>{{categoryArray[0].category.name}} ({{categoryArray.length}})</p>
+        <button class="c-btn" (click)="showRows()" [class.btn-active]="rowsMode === 'show'">Все параметры</button>
+        <br>
+        <button class="c-btn" (click)="hideRows()" [class.btn-active]="rowsMode === 'hide'">Только отличия</button>
+        <br>
+      </th>
+      <th *ngFor="let prod of categoryArray; let i = index">
+        <div class="img" [style.background-image]="makeUrl(prod.image)"></div>
+        <a href="#" [routerLink]="['/product',prod.id]" class="title">{{prod.name}}</a>
+        <p class="price">{{prod.price}} грн</p>
+        <div class="buttons">
+          <button class="btn-icon" *ngIf="prod.amount > 0" (click)="buy(prod)" title="добавить в корзину">
+            <i class="fas fa-shopping-basket"></i></button>
+          <button class="btn-icon" *ngIf="prod.amount < 1" (click)="notify()" title="сообщить о наличии">
+            <i class="fa fa-envelope" aria-hidden="true"></i></button>
+          <button  class="btn-icon" (click)="destroyProd(i)" title="убрать с сравнения"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+      </th>
+    </tr>
+    <tr *ngFor="let attr of categoryAttrs" class="rows">
+      <td>{{attr.name}}</td>
+      <td *ngFor="let prod of categoryArray">
+        <ng-container *ngFor="let prodAttr of prod['attributes']">
+          <ng-container *ngFor="let attrValue of prod['values']">
+            <ng-container *ngIf="prodAttr.name === attr.name && prodAttr.id === attrValue.pivot.Attribute_id">
+              <ng-container *ngIf="attrValue.value === 'true'">
+                есть
+              </ng-container>
+              <ng-container *ngIf="attrValue.value !== 'true'">
+                {{attrValue.value}}
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </td>
+    </tr>
+    <tr class="menu">
+      <th>
+        <button (click)="showRows()">Все параметры</button>
+        <br>
+        <button (click)="hideRows()">Только отличия</button>
+        <br>
+      </th>
+      <th *ngFor="let prod of categoryArray">
+        <a href="#" [routerLink]="['/product',prod.id]" class="title">{{prod.name}}</a>
+        <p class="price">{{prod.price}} грн</p>
+        <button  (click)="buy(prod)">BUY</button>
+      </th>
+    </tr>
+  </table>
+</div>

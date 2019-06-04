@@ -1,0 +1,120 @@
+.span-results
+{
+  color: #3f719b;
+  font-size: 1.2em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.list
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  border-top: 1px solid black;
+  align-items: end;
+}
+.block{
+  word-break: break-all;
+  font-size: 16px;
+  width: 22%;
+  height: 100%;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #5D4037;
+}
+.block .hr
+{
+  height: 1px;
+  width: 0;
+  background-color: #5D4037;
+  transition: 0.5s;
+}
+.block:hover .hr
+{
+  width: 100%;
+}
+
+.img{
+  width: 100%;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.price span{
+  font-family: 'Montserrat', sans-serif;
+  color: #5D4037;
+}
+.interaction button{
+  padding: 10px;
+}
+
+.card > *:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: black;
+}
+
+.amountHigh
+{
+  color: green;
+}
+.amountLow
+{
+  color: red;
+}
+.amountNo
+{
+  color: gray;
+}
+
+.activity, .interaction{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.raiting, .comments{
+  width: 40%;
+  height: 20px;
+}
+.raiting{
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.comments
+{
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comments > p
+{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.comments > p i{
+  color: #337ab7;
+}
+.comments > p span{
+  color: black;
+}
+.title
+{
+  color: #5D4037;
+}
+.title:hover
+{
+  color:  #03A9F4;
+}

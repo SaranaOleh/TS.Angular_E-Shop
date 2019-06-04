@@ -1,0 +1,89 @@
+<div class="container" *ngIf="product">
+  <h1 >{{product.name}}</h1>
+  <div class="nav">
+    <ul>
+      <a simplePageScroll href="#description"><li>Описание ▼</li></a>
+      <a simplePageScroll href="#characteristics"><li>Характеристики ▼</li></a>
+      <a simplePageScroll href="#reviews"><li>Отзывы (<span class="revLen">{{product.reviews.length}}</span>)▼</li></a>
+    </ul>
+    <div>
+      <span>Код товара: <span>{{product.id}}</span></span>
+      <app-raiting  [rait]="product.raiting" [kind]="'passive'"></app-raiting>
+    </div>
+  </div>
+  <div class="blocks">
+    <div class="visual">
+      <div class="zoom" title="во весь екран" (click)="zoom = true"><i class="fas fa-expand-arrows-alt"></i></div>
+      <app-slider *ngIf="product" [data]="slides"></app-slider>
+    </div>
+    <div class="interaction">
+      <p *ngIf="product.amount > 10" class="amountHigh">Есть в наличии</p>
+      <p *ngIf="product.amount <= 10 && product.amount > 0" class="amountLow">Заканчивается</p>
+      <p *ngIf="product.amount <= 0" class="amountNo">Нет в наличии</p>
+      <div class="price">
+        <span><span>{{product.price}}</span>грн</span>
+        <button class="localBuy" *ngIf="product.amount > 0" (click)="buy(product)">Купить</button>
+        <button class="localBuy" *ngIf="product.amount < 1" (click)="notify()">Сообщить о наличии</button>
+      </div>
+      <div class="compare">
+        <button class="btn-icon" (click)="compare(product)" title="добавить"><i class="fas fa-balance-scale"></i></button>
+        <span>К сравнению</span>
+      </div>
+    </div>
+  </div>
+  <h2 id="characteristics" *ngIf="product">Характеристики <span>{{product.name}}</span></h2>
+  <table *ngIf="attributes" class="attributes">
+    <tr *ngFor="let attr of attributes">
+      <td>{{attr.name}}</td>
+      <ng-container *ngFor="let value of product['attributes'];let i = index">
+        <td *ngIf="value.id === attr.id" class="value">
+          <ng-container *ngIf="product['values'][i].value === 'true'">
+            есть
+          </ng-container>
+          <ng-container *ngIf="product['values'][i].value !== 'true'">
+            {{product['values'][i].value}}
+          </ng-container>
+        </td>
+      </ng-container>
+      <td class="no">нет</td>
+    </tr>
+  </table>
+  <h2 id="description" *ngIf="product">Описание <span>{{product.name}}</span></h2>
+  <div *ngIf="product" class="description" [innerHTML]="product.description.text"></div>
+  <h2 id="reviews" *ngIf="product">Отзывы <span>{{product.name}}</span></h2>
+  <button class="leave-comment m-btn" (click)="leaveComment()"><i class="fas fa-edit"></i> Оставить отзыв</button>
+  <p *ngIf="leavingComment">Необходимо зарегестрироватся или войти</p>
+  <form class="form-comment" action="#" *ngIf="authorized" (submit)="onSubmit()">
+    <div class="setRaiting">
+      <p>Оцените товар</p>
+      <app-raiting  [rait]="product.raiting" [kind]="'active'" (setRaiting)="setRaiting = $event"></app-raiting>
+    </div>
+    <textarea name="text"  rows="6" class="comment" [(ngModel)]="comment"></textarea><br>
+    <button class="leave-comment m-btn"><i class="fas fa-upload"></i> Опубликовать</button>
+  </form>
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+  <ul class="review" *ngIf="product && product.reviews.length > 0">
+    <li *ngFor="let rev of product.reviews" class="review-block">
+      <div class="review-img"><i class="fas fa-user"></i></div>
+      <div class="review-content">
+        <p class="review-title">
+          <span class="rev-name">{{rev.name}}</span>
+          <span class="rev-raiting">
+            <app-raiting  [rait]="rev.value" [kind]="'passive'"></app-raiting>
+          </span>
+          <span class="rev-date">{{rev.created_at}}</span>
+        </p>
+        <p class="review-body">{{rev.text}}</p>
+      </div>
+    </li>
+  </ul>
+  <div class="zoom-slider" *ngIf="product && zoom" (click)="zoom = false">
+    <div class="zoom-container">
+      <button class="zoom-close" title="закрыть"><i class="fas fa-times"></i></button>
+      <app-slider [data]="slides" (click)="$event.stopPropagation()"></app-slider>
+    </div>
+  </div>
+</div>
+

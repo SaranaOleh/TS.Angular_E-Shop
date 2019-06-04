@@ -1,0 +1,36 @@
+<div class="container" (click)="closeWindow()">
+  <div class="form" (click)="$event.stopPropagation()">
+    <div class="header">
+      <p>Корзина :</p>
+      <button class="btn-icon" (click)="closeWindow()" title="закрыть">X</button>
+    </div>
+    <ul *ngIf="basketArray && basketArray.length>0" class="list">
+      <li *ngFor="let prod of basketArray; let i = index">
+        <div class="view">
+          <div class="img" [style.background-image]="makeUrl(prod.image)"></div>
+          <div class="title">
+            <p>{{prod.name}}</p>
+            <div class="amount">
+              <button class="adding" (click)="delProd(i)" title="отнять">-</button>
+              <span class="adding">{{prod.amount}}</span>
+              <button class="adding" (click)="addProd(i)" title="добавить">+</button>
+              <span class="price">x {{prod.price}} грн</span>
+            </div>
+          </div>
+        </div>
+        <div class="interactions">
+          <button class="m-btn" (click)="destroyProd(i)" title="удалить с корзины">X</button>
+          <p>{{prod.price}} грн</p>
+        </div>
+      </li>
+    </ul>
+    <p *ngIf="!basketArray || basketArray.length < 1">Корзина пуста</p>
+    <div class="footer">
+      <div class="counts">
+        <p>Количество: {{orderAmount()}}</p>
+        <p>Сумма заказа: <span>{{orderPrice()}}</span> грн</p>
+      </div>
+      <a class="m-btn" *ngIf="basketArray && basketArray.length>0" href="#" routerLink="/ordering"> Оформить заказ</a>
+    </div>
+  </div>
+</div>

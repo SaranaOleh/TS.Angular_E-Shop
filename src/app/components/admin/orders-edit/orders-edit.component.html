@@ -1,0 +1,61 @@
+<div class="container">
+  <p *ngIf="mode && mode === 'processing'" class="cat-title">Подтверждение заказа</p>
+  <p *ngIf="mode && mode === 'delivery'" class="cat-title">Просмотр заказа</p>
+  <div *ngIf="order" class="addForm">
+    <p>№ {{order.id}}</p>
+    <p>{{order.created_at}}</p>
+    <p>от:</p>
+    <div class="userData" *ngIf="user">
+      <p>{{user.surname}}</p>
+      <p>{{user.name}}</p>
+      <p>{{user.secondname}}</p>
+      <p>{{user.phone}}</p>
+      <p>{{user.email}}</p>
+    </div>
+    <div class="userData" *ngIf="!user">
+      <p>Неизвестно</p>
+    </div>
+    <p *ngIf="order.comment">Комментарий:</p>
+    <p *ngIf="order.comment">{{order.comment}}</p>
+    <p>на:</p>
+    <ul class="list">
+      <li *ngFor="let prod of basketArray; let i = index">
+        <div class="view">
+          <div>
+            <div class="title">
+              <p class="title">{{prod.name}}</p>
+              <div *ngIf="mode && mode === 'processing'" class="amount">
+                <button class="adding" (click)="delProd(i)">-</button>
+                <span class="adding">{{prod.amount}}</span>
+                <button class="adding" (click)="addProd(i)">+</button>
+                <span><span>{{prod.price}}</span> грн</span>
+              </div>
+              <div *ngIf="mode && mode === 'delivery'" class="amount">
+                <p>{{prod.amount}} шт. по {{prod.price}} грн</p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="mode && mode === 'processing'">
+            <button class="del btn-icon" (click)="destroyProd(i)"><i class="fas fa-times"></i></button>
+            <p>В наличии: <span [class.enough]="prod.amount > getproduct(prod.name).amount">{{getproduct(prod.name).amount}}</span></p>
+          </div>
+
+        </div>
+      </li>
+    </ul>
+    <div class="total">
+      <p>Итого на <span>{{orderPrice()}}</span> грн</p>
+    </div>
+    <div class="submit">
+      <button *ngIf="user && mode && mode === 'processing'" class="btn a-btn" (click)="onSubmit()">Подтвердить</button>
+      <button  class="btn a-btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+
+  </div>
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+
+</div>

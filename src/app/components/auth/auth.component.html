@@ -1,0 +1,55 @@
+<div class="container" (click)="closeWindow()">
+  <div class="form" (click)="$event.stopPropagation()">
+    <div class="nav">
+      <button class="btn-nav" (click)="currentForm = 'login'" [class.active]="currentForm === 'login'">Вход</button>
+      <button class="btn-nav"(click)="currentForm = 'register'" [class.active]="currentForm === 'register'">Регистрация</button>
+      <button class="close btn-icon" (click)="closeWindow()" title="закрыть"><i class="fas fa-times"></i></button>
+    </div>
+    <form action="#" name="login" class="login" *ngIf="currentForm === 'login'">
+      <label for="email_login">Электронная почта<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="email" name="email" id="email_login" [(ngModel)]="formData.email">
+      <p *ngIf="this.authErrors.email">{{ this.authErrors.email}}</p>
+
+      <label for="password_login">Пароль<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="password" name="password" id="password_login" [(ngModel)]="formData.password">
+      <p *ngIf="this.authErrors.password">{{ this.authErrors.password}}</p>
+
+      <p *ngIf="this.authErrors.error">{{ this.authErrors.error}}</p>
+
+      <input  class="m-btn" type="submit" value="Войти" (click)="onLogin(nav ? nav : '/')">
+    </form>
+
+    <form action="#" name="register" class="register" *ngIf="currentForm === 'register'">
+      <label for="surname_register">Фамилия<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="text" name="surname" id="surname_register" [(ngModel)]="formData.surname">
+      <p *ngIf="this.authErrors.surname">{{ this.authErrors.surname}}</p>
+
+      <label for="name_register">Имя<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="text" name="name" id="name_register" [(ngModel)]="formData.name">
+      <p *ngIf="this.authErrors.name">{{ this.authErrors.name}}</p>
+
+      <label for="secondname_register">Отчество<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="text" name="secondname" id="secondname_register" [(ngModel)]="formData.secondname">
+      <p *ngIf="this.authErrors.secondname">{{ this.authErrors.secondname}}</p>
+
+      <label for="phone_register">Телефон<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="text" name="phone" id="phone_register" [(ngModel)]="formData.phone">
+      <p *ngIf="this.authErrors.phone">{{ this.authErrors.phone}}</p>
+
+      <label for="email_register">Электронная почта<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="email" name="email" id="email_register" [(ngModel)]="formData.email">
+      <p *ngIf="this.authErrors.email">{{ this.authErrors.email}}</p>
+
+      <label for="password_register">Пароль<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="password" name="password" id="password_register" [(ngModel)]="formData.password">
+      <p *ngIf="this.authErrors.password">{{ this.authErrors.password}}</p>
+
+      <label for="password_confirmation_register">Повторите пароль<sup><i class="fas fa-star-of-life"></i></sup></label>
+      <input type="password" name="password_confirmation" id="password_confirmation_register"
+             [(ngModel)]="formData.password_confirmation">
+      <p *ngIf="this.authErrors.password_confirmation">{{ this.authErrors.password_confirmation}}</p>
+
+      <input class="m-btn" type="submit" value="Зарегестрироваться" (click)="onRegister()">
+    </form>
+  </div>
+</div>

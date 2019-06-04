@@ -1,0 +1,29 @@
+<header>
+  <div class="header">
+    <div class="logo">
+      <div class="layerOne"></div>
+      <div class="layerTwo"></div>
+      <div class="layerThree"></div>
+      <a href="#" routerLink="/">e</a>
+    </div>
+    <div class="nav">
+      <ul class="phones">
+        <li>34 0934 3934 3</li>
+        <li>43 443 43 555</li>
+      </ul>
+      <ul class="navigation">
+        <li>lorem</li>
+        <li>imsum</li>
+        <li>sit</li>
+        <li>amen</li>
+        <li>doloren</li>
+      </ul>
+    </div>
+    <div class="login">
+      <button class="m-btn" *ngIf="request && authorized" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+      <button  class="m-btn" *ngIf="request &&  !authorized" (click)="openAuth()"><i class="fas fa-sign-in-alt"></i> Войти</button>
+    </div>
+  </div>
+  <app-auth (close)="authOpen = false" (authorize)="authorized = true" *ngIf="authOpen"></app-auth>
+</header>
+

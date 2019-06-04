@@ -1,0 +1,45 @@
+<div class="container">
+  <app-menu></app-menu>
+    <app-slider [data]="dataArray"></app-slider>
+  <div class="paralax" [style.background-image]="paralax"></div>
+  <p class="new">Последние поступления</p>
+  <div class="content" >
+    <div class="slider" *ngIf="newest">
+      <button class="arrow arrow-left" (click)="slideLeft()"><i class="fas fa-angle-left"></i></button>
+      <button class="arrow arrow-right" (click)="slideRight()"><i class="fas fa-angle-right"></i></button>
+      <div class="container">
+        <div class="mover-new">
+
+          <div class="slide" *ngFor="let slide of newest">
+            <div class="card">
+              <a href="#" [routerLink]="['product',slide.id]" class="title">{{slide.category.name + " " + slide.name}}</a>
+              <div class="activity">
+                <div class="comments">
+                  <p>
+                    <i class="fas fa-comment-alt"></i>
+                    <span *ngIf="slide.reviews.length > 0">{{slide.reviews.length}} отзыва</span>
+                    <span *ngIf="slide.reviews.length < 1">{{slide.reviews.length}} отзывов</span>
+                  </p>
+                </div>
+                <div class="raiting">
+                  <app-raiting [kind]="'passive'" [rait]="slide.raiting"></app-raiting>
+                </div>
+              </div>
+              <div class="img" [style.background-image]="makeUrl(slide.image)"></div>
+              <div class="interaction">
+                <span class="price"><span>{{slide.price}}</span> грн</span>
+                <button class="btn-icon" (click)="compare(slide)" title="добавить в сравнение">
+                  <i class="fas fa-balance-scale"></i></button>
+                <button class="btn-icon" *ngIf="slide.amount > 0" (click)="buy(slide)" title="добавить в корзину">
+                  <i class="fas fa-shopping-basket"></i></button>
+                <button class="btn-icon" *ngIf="slide.amount < 1" (click)="notify()" title="сообщить о наличии">
+                  <i class="fa fa-envelope" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

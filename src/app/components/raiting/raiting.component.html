@@ -1,0 +1,10 @@
+
+<div *ngIf="mode === 'active'" class="container">
+  <i *ngFor="let item of [1,2,3,4,5]"
+     class="far fa-star" [attr.data-raiting]="item" [style.cursor]="'pointer'"
+     [class.fas]="item <= active" [style.textShadow]="item == active ? '0px 0px 2px black' : '0px 0px 0px transparent'"
+     (mouseenter)="fill($event.target)" (mouseleave)="clear($event.target)" (click)="toggleActive($event.target)"></i>
+</div>
+<div *ngIf="mode === 'passive'" class="container">
+  <i *ngFor="let item of [1,2,3,4,5]" class="far fa-star" [attr.data-raiting]="item" [class.fas]="item <= raiting"></i>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <p>Вы ищете : <span class="span-results">{{searchValue}}</span></p>
+  <p>Результаты поиска <span class="span-results">{{status ? searchResults.length : 0}}</span></p>
+  <p *ngIf="!status">Попробуйте изменить свой запрос.</p>
+  <div class="list" *ngIf="status">
+    <div class="block" *ngFor="let prod of searchResults">
+      <div class="card">
+        <a href="#" [routerLink]="['/product',prod.id]" class="title">{{prod.name}}</a>
+        <div class="activity">
+          <div class="comments">
+            <p>
+              <i class="fas fa-comment-alt"></i>
+              <span *ngIf="prod.reviews.length > 0">{{prod.reviews.length}} отзыва</span>
+              <span *ngIf="prod.reviews.length < 1">{{prod.reviews.length}} отзывов</span>
+            </p>
+          </div>
+          <div class="raiting">
+            <app-raiting [kind]="'passive'" [rait]="prod.raiting"></app-raiting>
+          </div>
+        </div>
+        <div class="img" [style.background-image]="makeUrl(prod.image)"></div>
+        <p *ngIf="prod.amount > 10" class="amountHigh">Есть в наличии</p>
+        <p *ngIf="prod.amount <= 10 && prod.amount > 0" class="amountLow">Заканчивается</p>
+        <p *ngIf="prod.amount <= 0" class="amountNo">Нет в наличии</p>
+        <div class="interaction">
+          <span class="price"><span>{{prod.price}}</span> грн</span>
+          <button class="btn-icon" (click)="compare(prod)" title="добавить в сравнение"><i class="fas fa-balance-scale"></i></button>
+          <button class="btn-icon" *ngIf="prod.amount > 0" (click)="buy(prod)" title="добавить в корзину">
+            <i class="fas fa-shopping-basket"></i></button>
+          <button class="btn-icon" *ngIf="prod.amount < 1" (click)="notify()" title="сообщить о наличии">
+            <i class="fa fa-envelope" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="hr"></div>
+    </div>
+    <ng-container *ngIf="additionalBlocks">
+      <div class="block" *ngFor="let item of additionalBlocks" style="border-bottom: 0"></div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div class="product" *ngIf="!addMode && !editMode">
+    <div class="title">
+      <button class="btn a-btn" (click)="updateOrders()" title="обновить"><i class="fas fa-sync-alt"></i></button>
+      <span class="cat-title">Заказы</span>
+      <app-preloader class="prod-preloader" *ngIf="!request"></app-preloader>
+    </div>
+
+    <table border="1px solid black">
+      <tr>
+        <th *ngFor="let order of colums">
+          <a href="#" class="th-order"
+             [routerLink]="[{order: order.name,
+             direction: params.direction === 'ASC' ? 'DESC' : 'ASC',
+             page: params.page}]" title="упорядочить">{{order.value}}
+            <ng-container *ngIf="params.order === order.name">
+              <span *ngIf="params.direction === 'ASC'">▲</span>
+              <span *ngIf="params.direction === 'DESC'">▼</span>
+            </ng-container>
+          </a>
+        </th>
+        <th>действие</th>
+      </tr>
+      <ng-container *ngFor="let prod of ordersArray">
+        <tr>
+          <td>{{prod.id}}</td>
+          <td>{{prod.status}}</td>
+          <td>{{prod.price}}</td>
+          <td>{{prod.amount}}</td>
+          <td>{{prod.created_at}}</td>
+          <td class="td-buttons">
+            <ng-container *ngIf="prod.status === 'processing'">
+              <button class="btn btn-icon" (click)="editMode ? editMode = false : editMode = prod.id" title="редактировать">
+                <i class="fas fa-edit"></i></button>
+            </ng-container>
+            <ng-container *ngIf="prod.status === 'delivery'">
+              <button class="btn btn-icon" (click)="editMode ? editMode = false : editMode = prod.id" title="просмотреть">
+                <i class="fas fa-eye"></i></button>
+            </ng-container>
+            <button class="btn btn-icon" (click)="onDelete(prod.id)" title="удалить"><i class="fas fa-times"></i></button>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+    <app-paginator class="prod-paginator" *ngIf="paginationData" [data]="paginationData"></app-paginator>
+  </div>
+
+  <app-orders-edit *ngIf="editMode" [prodId]="editMode"  (editing)="updateOrders();editMode = false"></app-orders-edit>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>

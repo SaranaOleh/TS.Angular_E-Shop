@@ -1,0 +1,12 @@
+<div class="container" title="сравнение товаров">
+  <div>
+    <p><i class="fas fa-balance-scale"></i> <sup *ngIf="compareArray">{{countProducts()}}</sup></p>
+    <ul *ngIf="compareArray && compareArray.length > 0">
+      <li *ngFor="let cat of compareArray">
+        <a href="#" [routerLink]="['/comparing',cat[0].category.name]">{{cat[0].category.name}} <span>({{cat.length}})</span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

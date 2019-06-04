@@ -1,0 +1,10 @@
+.container
+{
+  text-align: center;
+  border-top: 40px solid #45acc8;
+}
+.container p:first-child
+{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+}

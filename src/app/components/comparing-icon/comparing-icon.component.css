@@ -1,0 +1,48 @@
+.container
+{
+  width: 100%;
+  height: 100%;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: relative;
+}
+p
+{
+  font-family: 'Montserrat', sans-serif;
+  display: block;
+}
+sup
+{
+  font-family: 'Montserrat', sans-serif;
+  color: #f9ff00;
+}
+ul
+{
+  position: absolute;
+  display: none;
+  background-color:  #81D4FA;
+  z-index: 1;
+  padding: 10px;
+  font-size: 0.7em;
+  white-space: nowrap;
+  right: 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.container > div:hover ul
+{
+  display: block;
+}
+ul>li>a{
+  color: #FFEB3B;
+}
+ul>li>a span{
+  color: #5D4037;
+}
+i{
+  color: #5D4037;
+}
+i:hover
+{
+  text-shadow: 0 0 20px #FFEB3B;
+}

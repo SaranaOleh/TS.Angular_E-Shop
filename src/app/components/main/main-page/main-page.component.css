@@ -1,0 +1,174 @@
+.container{
+  height: 500px;
+}
+:host >>> app-slider .master .slide{
+  border: none;
+}
+:host >>> app-slider .master{
+  width: 75%;
+  display: inline-block;
+  vertical-align: top;
+}
+:host >>> app-slider .master .slider{
+  padding: 0 0 20px 0;
+}
+:host >>> app-slider .master .arrow{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+:host >>> app-slider .master .arrow i
+{
+  font-size: 2em;
+  color: #5D4037;
+}
+:host >>> app-slider .master .arrow:hover i
+{
+  color: #FFEB3B;
+}
+:host >>> app-slider .master .slider .nav
+{
+  background-color: #81D4FA;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+:host >>> app-slider .master .slider .nav .active
+{
+  background-color: #FFEB3B;
+}
+:host >>> app-slider .master .slider .nav .dots
+{
+  box-shadow:  0 0 0 2px white, 0 0 0 4px #5D4037;
+}
+
+.new{
+  font-family: 'Montserrat', sans-serif;
+  color: #03A9F4;
+  text-align: center;
+  margin: 30px 0 40px 0 ;
+  font-size: 1.3em;
+}
+
+
+
+
+
+.slider{
+  width: 100%;
+  padding: 0 20px;
+  height: 430px;
+  position: relative;
+  margin: 0 auto;
+}
+.arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2.5em;
+  color: #FFEB3B;
+}
+.arrow-left{
+  left: 0;
+}
+.arrow-right{
+  right: 0;
+}
+.container{
+  height: 100%;
+  overflow: hidden;
+}
+.mover-new{
+  width: 200%;
+  height: 100%;
+  font-size: 0;
+}
+.slide{
+  word-break: break-all;
+  font-size: 16px;
+  width: 11%;
+  height: 100%;
+  display: inline-block;
+  margin: 0 14px;
+  vertical-align: top;
+}
+.activity, .interaction{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.raiting, .comments{
+  width: 40%;
+  height: 20px;
+}
+.raiting{
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.comments
+{
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comments > p
+{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.comments > p i{
+  color: #337ab7;
+}
+.comments > p span{
+  color: black;
+}
+.img{
+  width: 100%;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.price span{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  color: #5D4037;
+}
+.card > *:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: black;
+}
+
+.paralax{
+  margin: 40px 0;
+  width: 100%;
+  height: 84px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 1.5s;
+}
+.card .title{
+  display: block;
+  height: 60px;
+  overflow: hidden;
+  color: #5D4037;
+}
+.card .title:hover
+{
+  color: #03A9F4;
+}

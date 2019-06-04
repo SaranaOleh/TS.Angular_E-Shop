@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="filters">
+    <ul class="attr">
+      <div class="priceRange">
+        <div class="priceInputs">
+          <input type="number" name="priceMin" [(ngModel)]="params.priceMin" (change)="changePrice($event.target)">
+          <span (click)="cancelRangePrice($event.target)" title="отменить фильтр цены">X</span>
+          <input type="number" name="priceMax" [(ngModel)]="params.priceMax" (change)="changePrice($event.target)">
+        </div>
+        <div class="priceRanges">
+          <div>
+            <span class="minRange">MIN</span>
+            <input type="range" name="rangeMin"
+                   min="{{minPrice}}" max="{{params.priceMax}}" step="1"
+                   [(ngModel)]="params.priceMin" (change)="changePrice($event.target)">
+          </div>
+          <div>
+            <input type="range" name="rangeMax"
+                   min="{{params.priceMin}}" max="{{maxPrice}}" step="1"
+                   [(ngModel)]="params.priceMax" (change)="changePrice($event.target)">
+            <span class="maxRange">MAX</span>
+          </div>
+        </div>
+        <div class="range"></div>
+      </div>
+      <ng-container *ngFor="let attr of attributeArray">
+        <li class="span">{{attr}}
+          <ul>
+            <ng-container *ngFor="let value of valueArray">
+              <ng-container *ngIf="value.name === attr">
+                <li *ngIf="value.value !== ''">
+                  <input type="checkbox" name="{{attr}}" value="{{value.value}}" (change)="filtering($event.target)"
+                         [attr.data-attribute-id]="value.Attribute_id" [attr.data-value-id]="value.Value_id"
+                  class="checkbox">
+                  <ng-container *ngIf="value.value === 'true'">есть</ng-container>
+                  <ng-container *ngIf="value.value !== 'true'">{{value.value}}</ng-container>
+                  <span class="target-span"></span>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+      <div class="popup" *ngIf="popup && popupCords"
+           [style.top]="popupCords.top + 'px'" [style.left]="popupCords.left + 'px'">
+        <div class="popupArrow"></div>
+        <a href="#" [routerLink]="[params]">Применить</a>
+      </div>
+    </ul>
+    <div class="attrButtons">
+      <a href="#" [routerLink]="[params]">Применить</a>
+      <a href="#" [routerLink]="['/goods',categoryName]">Сбросить</a>
+    </div>
+  </div>
+
+  <div class="products">
+    <div class="header">
+      <h1>{{categoryName}}</h1>
+      <select (change)="ordering($event.target.value)" [disabled]="!request">
+        <option *ngFor="let order of orderColumns" value="{{order.name}}"
+        [selected]="order.name === params.order ? params.direction === 'ASC' ? true : false :
+         order.name === 'priceHigh' ? params.order === 'price' && params.direction === 'DESC' : false">{{order.value}}</option>
+      </select>
+    </div>
+    <div class="list" *ngIf="productsArray">
+      <div class="block" *ngFor="let prod of productsArray">
+        <div class="card">
+          <a href="#" [routerLink]="['/product',prod.id]" class="title">{{prod.name}}</a>
+          <div class="activity">
+            <div class="comments">
+              <span>Код товара: <span>{{prod.id}}</span></span>
+            </div>
+            <div class="raiting">
+              <app-raiting [kind]="'passive'" [rait]="prod.raiting"></app-raiting>
+            </div>
+          </div>
+          <div class="img" [style.background-image]="makeUrl(prod.image)"></div>
+          <p *ngIf="prod.amount > 10" class="amountHigh">Есть в наличии</p>
+          <p *ngIf="prod.amount <= 10 && prod.amount > 0" class="amountLow">Заканчивается</p>
+          <p *ngIf="prod.amount <= 0" class="amountNo">Нет в наличии</p>
+          <div class="interaction">
+            <span class="price"><span>{{prod.price}}</span> грн</span>
+            <button class="btn-icon" (click)="compare(prod)" title="добавить в сравнение"><i class="fas fa-balance-scale"></i></button>
+            <button class="btn-icon" *ngIf="prod.amount > 0" (click)="buy(prod)" title="добавить в корзину">
+              <i class="fas fa-shopping-basket"></i></button>
+            <button class="btn-icon" *ngIf="prod.amount < 1" (click)="notify()" title="сообщить о наличии">
+              <i class="fa fa-envelope" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <div class="hr"></div>
+      </div>
+      <ng-container *ngIf="additionalBlocks">
+        <div class="block" *ngFor="let item of additionalBlocks" style="border-bottom: 0">
+        </div>
+      </ng-container>
+    </div>
+
+    <app-paginator class="prod-paginator" *ngIf="paginationData" [data]="paginationData"></app-paginator>
+
+    <div class="error" *ngIf="errors">
+      <p>{{errors.error}}</p>
+    </div>
+  </div>
+</div>
+
+

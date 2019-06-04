@@ -1,0 +1,32 @@
+<div class="container">
+  <form action="#" (submit)="onSubmit()" (blur)="searchResults = null">
+    <div class="inputs" >
+      <input type="text" name="search" placeholder="Что-нибудь ищете?" (input)="onSearch($event.target.value)" [(ngModel)]="searchValue"
+             (focus)="onFocus()" class="blur">
+      <input type="submit" value="Найти" class="blur">
+    </div >
+      <ul *ngIf="searchResults && searchResults.data.length > 0" class="list blur">
+        <a href="#" *ngFor="let prod of searchResults.data" [routerLink]="['/product',prod.id]" class="blur">
+          <li class="blur">
+            <div class="view blur">
+              <div class="img blur" [style.background-image]="makeUrl(prod.image)"></div>
+              <div class="title blur">
+                <p class="blur">{{prod.name}}</p>
+                <div class="amount blur">
+                  <span *ngIf="prod.amount < 1" class="amountNo blur">Нет в наличии</span>
+                  <span *ngIf="prod.amount > 0" class="price blur">{{prod.price}} грн</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </a>
+        <li>
+          <a href="#" [routerLink]="['/search',searchValue]" class="blur">
+            Показать все результаты поиска ({{searchResults.total}}) <i class="fas fa-arrow-right"></i></a>
+        </li>
+      </ul>
+    <ul *ngIf="searchResults && searchResults.data.length === 0" class="list blur">
+      <li>По вашему запросу ничего не найдено</li>
+    </ul>
+  </form>
+</div>

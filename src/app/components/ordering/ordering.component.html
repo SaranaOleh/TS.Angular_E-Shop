@@ -1,0 +1,77 @@
+<header>
+  <span id="anchor"></span>
+  <div class="header">
+    <div class="logo">
+      <div class="layerOne"></div>
+      <div class="layerTwo"></div>
+      <div class="layerThree"></div>
+      <a href="#" routerLink="/">e</a>
+    </div>
+    <div class="nav">
+      <ul class="phones">
+        <li>34 0934 3934 3</li>
+        <li>43 443 43 555</li>
+      </ul>
+    </div>
+    <div class="login">
+      <button class="m-btn" *ngIf="requestUser && authorized" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+      <button  class="m-btn" *ngIf="requestUser && !authorized" (click)="openAuth()"><i class="fas fa-sign-in-alt"></i> Войти</button>
+    </div>
+  </div>
+  <app-auth (close)="authOpen = false" (authorize)="authorized = true; updateUser()" [nav]="'/ordering'" *ngIf="authOpen"></app-auth>
+</header>
+<div class="main" *ngIf="basketArray && basketArray.length>0">
+  <h1>Оформление заказа</h1>
+  <div class="ordering">
+      <ul *ngIf="basketArray && basketArray.length>0" class="list">
+        <li *ngFor="let prod of basketArray; let i = index">
+          <div class="view">
+            <div>
+              <div class="img" [style.background-image]="makeUrl(prod.image)"></div>
+              <div class="title">
+                <a href="#" [routerLink]="['/product',prod.id]" class="title">{{prod.name}}</a>
+                <div class="amount">
+                  <button class="adding" (click)="delProd(i)" title="отнять">-</button>
+                  <span class="adding">{{prod.amount}}</span>
+                  <button class="adding" (click)="addProd(i)" title="добавить">+</button>
+                  <span><span>{{prod.price}}</span> грн</span>
+                </div>
+              </div>
+            </div>
+            <button class="del" (click)="destroyProd(i)" title="удалить с корзины">X</button>
+          </div>
+        </li>
+      </ul>
+    <div class="form">
+      <form action="#" (submit)="onSubmit()" class="addForm">
+        <div class="data">
+          <h2>Личные данные</h2>
+          <p *ngIf="requestUser && !authorized">Необходимо
+            <span (click)="authOpen = true;">зарегестрироватся или войти</span>
+          </p>
+          <div class="personal" *ngIf="requestUser && authorized && authUser">
+            <p>{{authUser.surname}}</p>
+            <p>{{authUser.name}}</p>
+            <p>{{authUser.phone}}</p>
+            <p>{{authUser.email}}</p>
+          </div>
+        </div>
+        <textarea class="comment" name="comment"  rows="3" [(ngModel)]="comment" placeholder="Оставить комментарий"></textarea>
+
+
+        <div class="total">
+          <p>Итого на <span>{{orderPrice()}}</span> грн</p>
+        </div>
+        <div class="submit">
+          <input class="btn" type="submit" value="Оформить заказ">
+          <app-preloader *ngIf="!request"></app-preloader>
+        </div>
+        <div class="error" *ngIf="errors">
+          <p>{{errors.error}}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<h1 *ngIf="!basketArray || basketArray.length < 1">Корзина пуста</h1>
+<a simplePageScroll href="#anchor" class="up"><li>Вверх ▲</li></a>

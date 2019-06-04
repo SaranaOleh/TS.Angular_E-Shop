@@ -1,0 +1,398 @@
+.container{
+  width: 100%;
+  padding-top: 20px;
+}
+h1{
+  word-break: break-all;
+  margin-bottom: 20px;
+}
+.nav > div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.nav > ul{
+  display: flex;
+  border: 1px solid #03A9F4;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.nav > ul a:not(:last-child){
+  border-right: 1px solid black;
+}
+.nav > ul > a{
+  padding: 6px;
+  color: #03A9F4;
+}
+.nav > ul > a > li{
+  font-family: 'Open Sans', sans-serif;
+}
+.nav > ul > a:hover{
+  background-color: #FFF9C4;
+}
+.nav span > span{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+.raiting{
+  width: 100px;
+  height: 20px;
+  background-color: #d4db65;
+}
+.nav > div{
+  display: flex;
+}
+.blocks{
+  display: flex;
+  justify-content: space-between;
+}
+.visual, .interaction{
+  flex: 1;
+}
+.visual{
+  position: relative;
+  margin-right: 30px;
+}
+.interaction{
+  border-top: 1px solid black;
+}
+:host >>> .visual app-slider .mover
+{
+  background-color: transparent;
+}
+
+:host >>> .visual app-slider .slide{
+  border: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+:host >>> .visual app-slider .master{
+  padding-bottom: 80px;
+}
+
+:host >>> .visual app-slider .master{
+  position: relative;
+}
+:host >>> .visual app-slider .arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+:host >>> .visual app-slider .arrow i
+{
+  font-size: 2em;
+  color: #5D4037;
+}
+
+:host >>> .visual app-slider .arrow-left{
+  left: 0;
+}
+:host >>> .visual app-slider .arrow-right{
+  right: 0;
+}
+:host >>> .visual app-slider .nav{
+  background-color: transparent;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+:host >>> .visual app-slider .dots{
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 2px solid transparent;
+  margin-right: 10px;
+}
+:host >>> .visual app-slider .dots.active{
+  background-color: transparent;
+  border: 2px solid #3f719b;
+}
+
+.price{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.price span > span{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin-right: 5px;
+}
+.price button{
+  padding: 10px;
+}
+.delivery{
+  width: 100%;
+  height: 500px;
+  background-color: #ecffe4;
+  margin: 20px 0;
+}
+
+h2{
+  word-break: break-all;
+  margin: 30px 0;
+}
+h2 > span{
+  color: #05879b;
+}
+.attributes
+{
+  width: 100%;
+  border-collapse: collapse;
+}
+.attributes td{
+  width: 50%;
+}
+td.value
+{
+  font-family: 'Montserrat', sans-serif;
+}
+td.no
+{
+  font-family: 'Montserrat', sans-serif;
+  color: red;
+}
+td.value + td
+{
+  display: none;
+}
+tr
+{
+  border-bottom: 1px solid black;
+}
+td
+{
+  padding: 10px;
+}
+.description
+{
+  width: 100%;
+}
+
+.comment{
+  resize: none;
+  width: 100%;
+  max-width: 300px;
+}
+.review
+{
+  width: 100%;
+  margin-top: 40px;
+  border-top: 1px solid black;
+  padding: 40px 10px;
+}
+
+.revLen
+{
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+}
+.review-block
+{
+  display: flex;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.review-img
+{
+  width: 70px;
+  height: 65px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid gray;
+  line-height: 65px;
+  text-align: center;
+  font-size: 3em;
+}
+.rev-raiting
+{
+  width: 90px;
+  height: 20px;
+  font-size: 0.7em;
+}
+.review-title
+{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.rev-name
+{
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 10px;
+}
+.rev-date
+{
+  margin-left: 10px;
+  font-size: 0.8em;
+  color: #7b7171;
+}
+
+.setRaiting
+{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.setRaiting p{
+  margin-right: 40px;
+}
+.compare button{
+  padding: 5px 8px;
+}
+.leave-comment{
+  padding: 5px 10px;
+  margin-bottom: 30px;
+}
+.form-comment{
+  margin-bottom: 30px;
+}
+
+.amountHigh
+{
+  color: green;
+}
+.amountLow
+{
+  color: red;
+}
+.amountNo
+{
+  color: gray;
+}
+
+.zoom
+{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  z-index: 1;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+}
+.zoom:hover
+{
+  color: #337ab7;
+}
+.zoom-slider
+{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(200,200,200,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.zoom-container
+{
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+.zoom-close
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #337ab7;
+  font-size: 2em;
+  z-index: 1;
+  padding: 0 10px;
+}
+
+:host >>> .zoom-slider app-slider .slider
+{
+  height: 700px;
+}
+
+:host >>> .zoom-slider app-slider .slide{
+  border: none;
+  background-size: contain;
+}
+
+:host >>> .zoom-slider app-slider .mover
+{
+  background-color: transparent;
+}
+:host >>> .zoom-slider app-slider .master{
+  padding-bottom: 0px;
+}
+
+:host >>> .zoom-slider app-slider .master{
+  position: relative;
+}
+:host >>> .zoom-slider app-slider .arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #337ab7;
+  font-size: 3em;
+}
+:host >>> .zoom-slider app-slider .arrow-left{
+  left: 0;
+}
+:host >>> .zoom-slider app-slider .arrow-right{
+  right: 0;
+}
+:host >>> .zoom-slider app-slider .nav{
+  background-color: transparent;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+:host >>> .zoom-slider app-slider .dots{
+ display: none;
+}
+:host >>> .zoom-slider app-slider .dots.active{
+  background-color: transparent;
+  border: 2px solid #3f719b;
+}
+
+.localBuy
+{
+  background-color: #81D4FA;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #5D4037;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+.localBuy:hover
+{
+  color: #FFEB3B;
+  box-shadow: 0 0 10px 0 #B3E5FC;
+}
+.price span > span
+{
+  color:  #5D4037;
+}
+
+h1, h2
+{
+  color:  #5D4037;
+}
